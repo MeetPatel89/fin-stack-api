@@ -1,0 +1,4 @@
+{"message":"Fullname is required","level":"error"}
+{"message":"Username is required","level":"error"}
+{"message":"Password is required","level":"error"}
+{"message":"User with username random not found","level":"error"}
