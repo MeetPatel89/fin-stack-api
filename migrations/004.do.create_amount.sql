@@ -3,6 +3,6 @@ CREATE TABLE IF NOT EXISTS amount (
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
     category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE NOT NULL,
     account_id INTEGER REFERENCES accounts(id) ON DELETE CASCADE NOT NULL,
-    amount NUMERIC(15, 2) NOT NULL
+    amount NUMERIC(15, 2) NOT NULL,
     date_time TIMESTAMPTZ
 )
