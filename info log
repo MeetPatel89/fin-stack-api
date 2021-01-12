@@ -37,3 +37,5 @@
 {"message":"User with username sdfasedf not found","level":"error"}
 {"message":"User with username sdfdf not found","level":"error"}
 {"message":"User id is required","level":"error"}
+{"message":"Account is required","level":"error"}
+{"message":"Account is required","level":"error"}
