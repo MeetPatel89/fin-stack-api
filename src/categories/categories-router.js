@@ -12,6 +12,7 @@ categoriesRouter.route('/api/categories/:userId').get((req, res, next) => {
   CategoriesService.getCategoriesByUserId(knexInstance, userId)
     .then((categories) => res.json(categories))
     .catch(next);
-});
+})
+.post(())
 
 module.exports = categoriesRouter;
