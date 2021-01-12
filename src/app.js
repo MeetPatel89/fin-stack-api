@@ -7,6 +7,7 @@ const { NODE_ENV } = require('./config');
 const logger = require('./logger');
 const usersRouter = require('./users/users-router');
 const accountsRouter = require('./accounts/accounts-router');
+const categoriesRouter = require('./categories/categories-router');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(cors());
 
 app.use(usersRouter);
 app.use(accountsRouter);
+app.use(categoriesRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello, fin-stack!');
