@@ -49,7 +49,7 @@ usersRouter.route('/api/users/:username').get((req, res, next) => {
     .then((user) => {
       if (!user.length) {
         logger.error(`User with username ${username} not found`);
-        return res.status(404).send('User not found');
+        return res.status(404).json('User not found');
       }
       return res.json(user);
     })
