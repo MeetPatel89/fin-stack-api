@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS amount;
+DROP TABLE IF EXISTS transactions;
