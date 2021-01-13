@@ -1,4 +1,4 @@
-INSERT INTO amount (id, user_id, category_id, account_id, amount, date_time)
+INSERT INTO transactions (id, user_id, category_id, account_id, amount, date_time)
 VALUES 
     (1, 1, 1, 2, 200.50, '2021-01-11T22:22:52+00:00'),
     (2, 1, 3, 1, 5000, '2021-01-05T22:22:52+00:00'),
