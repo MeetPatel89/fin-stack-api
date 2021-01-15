@@ -43,3 +43,7 @@
 {"message":"Type is required","level":"error"}
 {"message":"Type is required","level":"error"}
 {"message":"Transaction with id 24 not found","level":"error"}
+{"message":"At least one field is required to update transaction","level":"error"}
+{"message":"At least one field is required to update transaction","level":"error"}
+{"message":"At least one field is required to update transaction","level":"error"}
+{"message":"At least one field is required to update transaction","level":"error"}

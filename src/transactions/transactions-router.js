@@ -37,8 +37,8 @@ transactionsRouter
       return res.status(400).send('Invalid data');
     }
     if (!newTransaction.type) {
-        logger.error('Type is required');
-        return res.status(400).send('Invalid data')
+      logger.error('Type is required');
+      return res.status(400).send('Invalid data');
     }
     return TransactionsService.insertTransactions(knexInstance, newTransaction)
       .then((transaction) => res.status(201).json(transaction))
@@ -48,34 +48,41 @@ transactionsRouter
 transactionsRouter
   .route('/api/transactions/:id')
   .delete((req, res, next) => {
-      const knexInstance = req.app.get('db');
-      const { id } = req.params;
-      TransactionsService.deleteTransactionsById(knexInstance, id)
-        .then(transaction => {
-            if (!transaction.length) {
-                logger.error(`Transaction with id ${id} not found`);
-                return res.status(400).send('Transaction not found')
-            }
-            return res.status(204).end();
-        })
-        .catch(next);
+    const knexInstance = req.app.get('db');
+    const { id } = req.params;
+    TransactionsService.deleteTransactionsById(knexInstance, id)
+      .then((transaction) => {
+        if (!transaction.length) {
+          logger.error(`Transaction with id ${id} not found`);
+          return res.status(400).send('Transaction not found');
+        }
+        return res.status(204).end();
+      })
+      .catch(next);
   })
   .patch(bodyParser, (req, res, next) => {
-      const knexInstance = req.app.get('db');
-      const { id } = req.params;
-      const { category, type, accounts, amount, date_time } = req.body;
-      const updatedTransaction = {
-          category,
-          type,
-          accounts,
-          amount,
-          date_time
-      }
-      if (!updatedTransaction) {
-          logger.error('At least one field is required to update transaction');
-          return res.status(400).send('Invalid data')
-      }
-      
-  })
+    const knexInstance = req.app.get('db');
+    const { id } = req.params;
+    const { category, type, accounts, amount, date_time } = req.body;
+    const newTransaction = {
+      category,
+      type,
+      accounts,
+      amount,
+      date_time,
+    };
+    
+    if (!category && !type && !accounts && !amount && !date_time) {
+      logger.error('At least one field is required to update transaction');
+      return res.status(400).send('Invalid data');
+    }
+    return TransactionsService.updateTransactionById(
+      knexInstance,
+      id,
+      newTransaction
+    )
+      .then((updatedTransaction) => res.status(201).json(updatedTransaction))
+      .catch(next);
+  });
 
 module.exports = transactionsRouter;
