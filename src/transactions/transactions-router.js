@@ -36,6 +36,10 @@ transactionsRouter
       logger.error('Datetime is required');
       return res.status(400).send('Invalid data');
     }
+    if (!newTransaction.type) {
+        logger.error('Type is required');
+        return res.status(400).send('Invalid data')
+    }
     return TransactionsService.insertTransactions(knexInstance, newTransaction)
       .then((transaction) => res.status(201).json(transaction))
       .catch(next);
