@@ -4,6 +4,9 @@ const TransactionsService = {
     },
     insertTransactions(knex, newTransaction) {
         return knex.insert(newTransaction).into('transactions').returning('*');
+    },
+    deleteTransactionsById(knex, id) {
+        return knex.from('transactions').where({id}).delete().returning('*')
     }
 }
 
