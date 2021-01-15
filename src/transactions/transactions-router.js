@@ -45,4 +45,20 @@ transactionsRouter
       .catch(next);
   });
 
+transactionsRouter
+  .route('/api/transactions/:id')
+  .delete((req, res, next) => {
+      const knexInstance = req.app.get('db');
+      const { id } = req.params;
+      TransactionsService.deleteTransactionsById(knexInstance, id)
+        .then(transaction => {
+            if (!transaction.length) {
+                logger.error(`Transaction with id ${id} not found`);
+                return res.status(400).send('Transaction not found')
+            }
+            return res.status(204).end();
+        })
+        .catch(next);
+  })
+
 module.exports = transactionsRouter;
