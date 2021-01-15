@@ -60,5 +60,22 @@ transactionsRouter
         })
         .catch(next);
   })
+  .patch(bodyParser, (req, res, next) => {
+      const knexInstance = req.app.get('db');
+      const { id } = req.params;
+      const { category, type, accounts, amount, date_time } = req.body;
+      const updatedTransaction = {
+          category,
+          type,
+          accounts,
+          amount,
+          date_time
+      }
+      if (!updatedTransaction) {
+          logger.error('At least one field is required to update transaction');
+          return res.status(400).send('Invalid data')
+      }
+      
+  })
 
 module.exports = transactionsRouter;

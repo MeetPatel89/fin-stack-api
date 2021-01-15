@@ -7,6 +7,9 @@ const TransactionsService = {
     },
     deleteTransactionsById(knex, id) {
         return knex.from('transactions').where({id}).delete().returning('*')
+    },
+    updateTransactionById(knex, id, newTransaction) {
+        return knex.from('transactions').where({id}).update(newTransaction).returning('*');
     }
 }
 
