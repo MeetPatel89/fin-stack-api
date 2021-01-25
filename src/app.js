@@ -8,7 +8,7 @@ const logger = require('./logger');
 const usersRouter = require('./users/users-router');
 const accountsRouter = require('./accounts/accounts-router');
 const categoriesRouter = require('./categories/categories-router');
-const transactionsRouter = require('./transactions/transactions-router')
+const transactionsRouter = require('./transactions/transactions-router');
 
 const app = express();
 
@@ -22,10 +22,6 @@ app.use(usersRouter);
 app.use(accountsRouter);
 app.use(categoriesRouter);
 app.use(transactionsRouter);
-
-app.get('/', (req, res) => {
-  res.send('Hello, fin-stack!');
-});
 
 app.use(
   (errorHandler = (error, req, res, next) => {
