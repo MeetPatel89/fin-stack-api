@@ -23,10 +23,6 @@ app.use(accountsRouter);
 app.use(categoriesRouter);
 app.use(transactionsRouter);
 
-app.get('/', (req, res) => {
-  res.send('Hello fin-stack-api');
-});
-
 app.use(
   (errorHandler = (error, req, res, next) => {
     let response;
