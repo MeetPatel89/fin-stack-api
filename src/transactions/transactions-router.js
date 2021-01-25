@@ -5,6 +5,13 @@ const TransactionsService = require('../transactions-service');
 const transactionsRouter = express.Router();
 const bodyParser = express.json();
 
+transactionsRouter.route('/api/transactions').get((req, res, next) => {
+  const knexInstance = req.app.get('db');
+  TransactionsService.getAllTransactions(knexInstance)
+    .then((transactions) => res.json(transactions))
+    .catch(next);
+});
+
 transactionsRouter
   .route('/api/transactions/:userId')
   .get((req, res, next) => {
@@ -71,7 +78,7 @@ transactionsRouter
       amount,
       date_time,
     };
-    
+
     if (!category && !type && !accounts && !amount && !date_time) {
       logger.error('At least one field is required to update transaction');
       return res.status(400).send('Invalid data');

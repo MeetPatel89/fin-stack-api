@@ -47,3 +47,9 @@
 {"message":"At least one field is required to update transaction","level":"error"}
 {"message":"At least one field is required to update transaction","level":"error"}
 {"message":"At least one field is required to update transaction","level":"error"}
+{"message":"At least one field is required to update transaction","level":"error"}
+{"message":"At least one field is required to update transaction","level":"error"}
+{"message":"User with username nautilus not found","level":"error"}
+{"message":"User with username nautilus not found","level":"error"}
+{"message":"Category is required","level":"error"}
+{"message":"Transaction with id 2 not found","level":"error"}
