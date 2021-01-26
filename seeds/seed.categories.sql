@@ -1,3 +1,5 @@
+BEGIN;
+
 INSERT INTO categories (id , user_id, category, type)
 VALUES 
     (1 , 1, 'Food', 'expense'),
@@ -8,4 +10,8 @@ VALUES
     (6, 2, 'Salary', 'balance'),
     (7, 3, 'Food', 'expense'),
     (8, 3, 'Entertainment', 'expense'),
-    (9, 3, 'Salary', 'balance')
+    (9, 3, 'Salary', 'balance');
+
+SELECT setval('categories_id_seq', (SELECT MAX(id) from categories));
+
+COMMIT;

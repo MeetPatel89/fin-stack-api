@@ -58,3 +58,5 @@
 {"message":"User with username dfsdafd not found","level":"error"}
 {"message":"User with username fibonacc89 not found","level":"error"}
 {"message":"User with username asdfdf not found","level":"error"}
+{"message":"Username is required","level":"error"}
+{"message":"Password is required","level":"error"}
