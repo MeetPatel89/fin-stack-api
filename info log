@@ -60,3 +60,4 @@
 {"message":"User with username asdfdf not found","level":"error"}
 {"message":"Username is required","level":"error"}
 {"message":"Password is required","level":"error"}
+{"message":"User with username randomname89 not found","level":"error"}

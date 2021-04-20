@@ -23,6 +23,10 @@ app.use(accountsRouter);
 app.use(categoriesRouter);
 app.use(transactionsRouter);
 
+app.get('/', (req, res) => {
+  res.send('Hello Fin Stack! Some more elaborate way to welcome you to this application fin stack!');
+});
+
 app.use(
   (errorHandler = (error, req, res, next) => {
     let response;
